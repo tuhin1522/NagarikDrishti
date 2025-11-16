@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-      hi
+      hi molla
     </>
   )
 }
