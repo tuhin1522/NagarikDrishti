@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "title": "Fire Outbreak",
+    "type": "Fire",
+    "description": "A sudden fire broke out in a residential building. Immediate response from firefighters is needed.",
+    "location": "Mirpur-10, Dhaka",
+    "coordinates": {
+      "lat": 23.810331,
+      "lng": 90.412521
+    },
+    "image": "https://i.postimg.cc/BZ5KZdWG/firee.webp",
+    "severity": "High",
+    "reported_at": "2025-01-12 14:35"
+  },
+  {
+    "id": 2,
+    "title": "Road Collapse",
+    "type": "Infrastructure Failure",
+    "description": "A major road section has collapsed due to soil erosion. High risk of accidents.",
+    "location": "Chattogram City Gate",
+    "coordinates": {
+      "lat": 22.356851,
+      "lng": 91.783182
+    },
+    "image": "https://i.postimg.cc/7h17pRkW/istockphoto-1006466394-612x612.jpg",
+    "severity": "High",
+    "reported_at": "2025-01-14 09:20"
+  },
+  {
+    "id": 3,
+    "title": "Flooding in Street",
+    "type": "Flooding",
+    "description": "Waterlogging after heavy rainfall has blocked the main road, causing traffic congestion.",
+    "location": "Uttara Sector 4, Dhaka",
+    "coordinates": {
+      "lat": 23.876670,
+      "lng": 90.379460
+    },
+    "image": "https://i.postimg.cc/0QT0gmJz/floods.jpg",
+    "severity": "Medium",
+    "reported_at": "2025-01-15 18:10"
+  },
+  {
+    "id": 4,
+    "title": "Building Crack",
+    "type": "Structural Damage",
+    "description": "Large crack detected in a residential apartment building wall. Risk of partial collapse.",
+    "location": "Khulshi, Chattogram",
+    "coordinates": {
+      "lat": 22.359993,
+      "lng": 91.819382
+    },
+    "image": "https://i.postimg.cc/XYb1BMqW/Diagonal-Crack.webp",
+    "severity": "High",
+    "reported_at": "2025-01-18 11:45"
+  },
+  {
+    "id": 5,
+    "title": "Electrical Short Circuit",
+    "type": "Electrical Fault",
+    "description": "An electrical pole caught fire due to a short circuit, threatening nearby shops and pedestrians.",
+    "location": "Jatrabari, Dhaka",
+    "coordinates": {
+      "lat": 23.710400,
+      "lng": 90.421100
+    },
+    "image": "https://i.postimg.cc/FKxZL1qD/A-1200x627-1024x535.png",
+    "severity": "High",
+    "reported_at": "2025-01-20 07:50"
+  }
+]
