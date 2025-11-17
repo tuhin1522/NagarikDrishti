@@ -20,6 +20,6 @@
   }
 
   .navbar-theme {
-    @apply bg-gradient-to-tr from-blue-800 via-blue-800 to-blue-900 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 shadow-md rounded-xl text-white;
+    @apply bg-gradient-to-tr from-gray-900 via-gray-800 to-black dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 shadow-md rounded-xl text-white;
     /* @apply bg-gradient-to-r from-[#FF1D8D] to-[#FF1D8D]/70 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 shadow-md rounded-xl */
 }

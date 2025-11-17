@@ -2,6 +2,7 @@ import React from 'react';
 import { Outlet } from 'react-router';
 import Navbar from '../Shared/Navbar';
 import { ThemeProvider } from '../Context/ThemeContext/ThemeContext';
+import Footer from '../Shared/Footer/Footer';
 
 const RootLayouts = () => {
     return (
@@ -10,6 +11,7 @@ const RootLayouts = () => {
                 <Navbar/>
             </ThemeProvider>
             <Outlet/>
+            <Footer/>
         </div>
     );
 };

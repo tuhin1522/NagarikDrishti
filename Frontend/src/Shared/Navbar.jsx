@@ -1,7 +1,8 @@
 import React, { use, useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Context/AuthContext/AuthContext";
 import { ThemeContext } from "../Context/ThemeContext/ThemeContext";
+import NagarikDrishtiLogo from "./NagarikDrishtiLogo/NagarikDrishtiLogo";
 
 const Navbar = () => {
 
@@ -49,7 +50,9 @@ const Navbar = () => {
             {navItems}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <Link className="btn btn-ghost text-xl" to="/">
+          <NagarikDrishtiLogo />
+        </Link>
       </div>
 
       <div className="navbar-center hidden lg:flex">
