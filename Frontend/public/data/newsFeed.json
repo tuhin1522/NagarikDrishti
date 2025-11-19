@@ -1,0 +1,172 @@
+[
+  {
+    "id": 101,
+    "category": "Infrastructure",
+    "title": "Large Pothole on Main Road",
+    "description": "A deep pothole (approx. 1m wide) on the Dhaka-Aricha road near the bus stop causes frequent accidents and vehicle damage.",
+    "user": { "name": "Nazmul", "profile_image": "https://i.postimg.cc/rm0BTvQC/handsome-smiling-man-looking-with-disbelief-176420-19591.jpg" },
+    "location": { "name": "Mirpur-10, Dhaka - Near Bus Stop", "lat": 23.810331, "lng": 90.412521 },
+    "image": "https://i.postimg.cc/7h17pRkW/istockphoto-1006466394-612x612.jpg",
+    "severity": "High",
+    "status": "reported",
+    "reported_at": "2025-11-10T09:12:00Z",
+    "reporter_contact": "+8801712345678",
+    "tags": ["pothole","road","accident-risk"],
+    "votes": 37,
+    "comments": [
+      { "user": "Rita", "text": "Vehicle punctured here yesterday." }
+    ]
+  },
+  {
+    "id": 102,
+    "category": "Sanitation",
+    "title": "Severe Drain Blockage Causing Waterlogging",
+    "description": "Drain has been blocked for 3 days; stagnant water is causing mosquito breeding and bad odor.",
+    "user": { "name": "Sadia", "profile_image": "https://i.postimg.cc/MKxF3MJ2/beautiful-young-woman-posing-park.jpg" },
+    "location": { "name": "Uttara Sector 4, Dhaka", "lat": 23.876670, "lng": 90.379460 },
+    "image": "https://i.postimg.cc/0QT0gmJz/floods.jpg",
+    "severity": "Medium",
+    "status": "in_progress",
+    "reported_at": "2025-11-12T17:50:00Z",
+    "reporter_contact": "+8801712349999",
+    "tags": ["drain","waterlogging","health-hazard"],
+    "votes": 19,
+    "comments": []
+  },
+  {
+    "id": 103,
+    "category": "Lighting",
+    "title": "Street Lights Not Working",
+    "description": "Multiple street lamps are off along the main walkway. Area is dark and risky at night.",
+    "user": { "name": "Alam", "profile_image": "https://i.postimg.cc/1thHg2yv/handsome-young-serious-man-standing-isolated.jpg" },
+    "location": { "name": "Banani Road 12, Dhaka", "lat": 23.793473, "lng": 90.406729 },
+    "image": "https://i.postimg.cc/FKxZL1qD/A-1200x627-1024x535.png",
+    "severity": "Medium",
+    "status": "reported",
+    "reported_at": "2025-11-09T20:10:00Z",
+    "reporter_contact": "+8801712233445",
+    "tags": ["lighting","safety","night"],
+    "votes": 12,
+    "comments": [
+      { "user": "Farhana", "text": "There was a mugging last week." }
+    ]
+  },
+  {
+    "id": 104,
+    "category": "Waste Management",
+    "title": "Illegal Dumping & Overflowing Bins",
+    "description": "Garbage bins frequently overflow and nearby area is used for illegal dumping; strong smell and pests.",
+    "user": { "name": "Jamil", "profile_image": "https://i.postimg.cc/XqN9d0tM/stylish-handsome-indian-man-tshirt-pastel-wall-496169-1571.jpg" },
+    "location": { "name": "Shantinagar Market, Dhaka", "lat": 23.740697, "lng": 90.420293 },
+    "image": "https://i.postimg.cc/XYb1BMqW/Diagonal-Crack.webp",
+    "severity": "Medium",
+    "status": "reported",
+    "reported_at": "2025-11-11T07:35:00Z",
+    "reporter_contact": "+8801714455667",
+    "tags": ["trash","overflow","health"],
+    "votes": 22,
+    "comments": []
+  },
+  {
+    "id": 105,
+    "category": "Safety",
+    "title": "Collapsed Footpath - Pedestrian Hazard",
+    "description": "Section of footpath collapsed and fenced off poorly; pedestrians forced into road.",
+    "user": { "name": "Mehedi", "profile_image": "https://i.postimg.cc/nrLQMG95/young-bearded-man-with-striped-shirt-273609-5677.avif" },
+    "location": { "name": "Kawran Bazar, Dhaka", "lat": 23.750000, "lng": 90.380000 },
+    "image": "https://i.postimg.cc/0QT0gmJz/floods.jpg",
+    "severity": "High",
+    "status": "reported",
+    "reported_at": "2025-11-13T12:00:00Z",
+    "reporter_contact": "+8801711122334",
+    "tags": ["footpath","collapse","pedestrian"],
+    "votes": 45,
+    "comments": [
+      { "user": "Asif", "text": "Kids struggle to use this route every day." }
+    ]
+  },
+  {
+    "id": 106,
+    "category": "Utilities",
+    "title": "Frequent Power Outages in Block C",
+    "description": "Unscheduled load-shedding and transformer issues; hospitals and shops affected.",
+    "user": { "name": "Mahiya Mahi", "profile_image": "https://i.postimg.cc/1Xg5LCNW/beautiful-brunette-woman-jeans-shirt-posing-against-purple-wall-274222-10651.jpg" },
+    "location": { "name": "Gulshan-1, Dhaka", "lat": 23.792347, "lng": 90.407853 },
+    "image": "https://i.postimg.cc/FKxZL1qD/A-1200x627-1024x535.png",
+    "severity": "High",
+    "status": "in_progress",
+    "reported_at": "2025-11-08T02:45:00Z",
+    "reporter_contact": "+8801719988776",
+    "tags": ["power","outage","utilities"],
+    "votes": 55,
+    "comments": []
+  },
+  {
+    "id": 107,
+    "category": "Environmental",
+    "title": "Open Sewage Leak Near School",
+    "description": "Sewage pipe leak near primary school; children exposed to contaminated water.",
+    "user": { "name": "Sharmin", "profile_image": "https://i.postimg.cc/LsN9hKk4/lifestyle-people-emotions-casual-concept-confident-nice-smiling-asian-woman-cross-arms-chest-confide.jpg" },
+    "location": { "name": "Mirpur-2, Dhaka", "lat": 23.830000, "lng": 90.360000 },
+    "image": "https://i.postimg.cc/BZ5KZdWG/firee.webp",
+    "severity": "Critical",
+    "status": "reported",
+    "reported_at": "2025-11-14T08:20:00Z",
+    "reporter_contact": "+8801716677889",
+    "tags": ["sewage","health","school"],
+    "votes": 88,
+    "comments": [
+      { "user": "Nilu", "text": "Please fix quickly, children are affected." }
+    ]
+  },
+  {
+    "id": 108,
+    "category": "Construction",
+    "title": "Unauthorized Construction Blocking Drainage",
+    "description": "New illegal construction reduced drainage capacity, causing frequent floods in monsoon.",
+    "user": { "name": "Tariq", "profile_image": "https://i.postimg.cc/tRVsvJt2/tarek.avif" },
+    "location": { "name": "Chattogram, Nasirabad", "lat": 22.356851, "lng": 91.783182 },
+    "image": "https://i.postimg.cc/XYb1BMqW/Diagonal-Crack.webp",
+    "severity": "High",
+    "status": "reported",
+    "reported_at": "2025-11-01T10:30:00Z",
+    "reporter_contact": "+8801715544332",
+    "tags": ["construction","drain","flood"],
+    "votes": 26,
+    "comments": []
+  },
+  {
+    "id": 109,
+    "category": "Public Safety",
+    "title": "Unprotected Open Manhole",
+    "description": "Manhole cover missing on the roadside; immediate danger for vehicles and pedestrians.",
+    "user": { "name": "Rubel", "profile_image": "https://i.postimg.cc/85fzYXWk/salman.avif" },
+    "location": { "name": "Cox's Bazar Main Road", "lat": 21.4272, "lng": 92.0058 },
+    "image": "https://i.postimg.cc/7h17pRkW/istockphoto-1006466394-612x612.jpg",
+    "severity": "Critical",
+    "status": "reported",
+    "reported_at": "2025-11-15T06:50:00Z",
+    "reporter_contact": "+8801711199887",
+    "tags": ["manhole","danger","road"],
+    "votes": 65,
+    "comments": [
+      { "user": "Sajid", "text": "Kids almost fell into it." }
+    ]
+  },
+  {
+    "id": 110,
+    "category": "Flooding",
+    "title": "Waterlogging After Heavy Rain",
+    "description": "Main intersection waterlogged for hours; small vehicles stuck and pedestrians drenched.",
+    "user": { "name": "Hasan", "profile_image": "https://i.postimg.cc/BQBQRK8P/rana.avif" },
+    "location": { "name": "Sector 3 Roundabout, Khulna", "lat": 22.8456, "lng": 89.5403 },
+    "image": "https://i.postimg.cc/0QT0gmJz/floods.jpg",
+    "severity": "Medium",
+    "status": "reported",
+    "reported_at": "2025-11-10T21:10:00Z",
+    "reporter_contact": "+8801712233001",
+    "tags": ["waterlogging","flood","traffic"],
+    "votes": 31,
+    "comments": []
+  }
+]

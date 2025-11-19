@@ -1,0 +1,25 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@tailwind utilities;
+
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@layer base {
+  html {
+    @apply transition-colors duration-300;
+  }
+  body {
+    @apply bg-[#F9FAFB] text-indigo-800 font-sans dark:bg-gray-900 dark:text-gray-100;
+  }
+}
+
+  .navbar {
+    @apply sticky top-0 z-50 shadow-md px-4 py-2 border-b border-gray-200;
+  }
+
+  .navbar-theme {
+    @apply bg-gradient-to-tr from-gray-900 via-gray-800 to-black dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 shadow-md rounded-xl text-white;
+    /* @apply bg-gradient-to-r from-[#FF1D8D] to-[#FF1D8D]/70 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 shadow-md rounded-xl */
+}
