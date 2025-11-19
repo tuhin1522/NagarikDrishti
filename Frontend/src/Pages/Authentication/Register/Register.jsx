@@ -1,27 +1,52 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { motion } from "framer-motion";
-import { User, Mail, Lock, MapPin, Camera } from "lucide-react";
+import { User, Mail, Lock, MapPin, Camera, Eye, EyeOff } from "lucide-react";
+import { AuthContext } from "../../../Context/AuthContext/AuthContext";
+import { Link, useNavigate } from "react-router";
+import { toast } from "react-toastify";
 
 export default function Register() {
+  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const navigate = useNavigate();
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [photo, setPhoto] = useState("");
   const [location, setLocation] = useState("");
 
-  const handleRegister = (e) => {
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
+  const [showPass, setShowPass] = useState(false);
+
+  const handleRegister = async (e) => {
     e.preventDefault();
-    alert(`Registering ${name} with ${email}`);
+
+    try {
+      const result = await createUser(email, password);
+
+      await updateUserProfile({
+        displayName: `${name} | ${location}`,
+        photoURL: photo,
+      });
+
+      toast.success("Account created successfully!", {
+        autoClose: 1200,
+        onClose: () => navigate("/"),
+      });
+    } catch (err) {
+      toast.error(err.message);
+    }
   };
 
   return (
     <div className="relative w-full h-screen bg-gradient-to-tr from-gray-900 via-purple-900 to-blue-900 flex items-center justify-center overflow-hidden">
-      
       {/* Background Neon Circles */}
       <div className="absolute w-[800px] h-[800px] bg-purple-700/30 rounded-full top-[-200px] left-[-200px] animate-pulse-slow"></div>
       <div className="absolute w-[700px] h-[700px] bg-blue-500/20 rounded-full bottom-[-150px] right-[-100px] animate-pulse-slow"></div>
 
-      {/* Glass Register Card */}
+      {/* Register Card */}
       <motion.div
         initial={{ opacity: 0, scale: 0.85 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -31,6 +56,14 @@ export default function Register() {
         <h2 className="text-4xl font-extrabold text-white text-center mb-8 drop-shadow-xl">
           Create Your Account
         </h2>
+
+        {/* Success Message */}
+        {success && (
+          <p className="text-green-400 text-center mb-3">{success}</p>
+        )}
+
+        {/* Error Message */}
+        {error && <p className="text-red-400 text-center mb-3">{error}</p>}
 
         <form onSubmit={handleRegister} className="space-y-5">
           {/* Name */}
@@ -46,7 +79,7 @@ export default function Register() {
               placeholder="Full Name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full pl-10 py-3 rounded-xl bg-black/30 text-white placeholder-purple-200/70 border border-purple-600/50 focus:border-purple-400 focus:outline-none transition"
+              className="w-full pl-10 py-3 rounded-xl bg-black/30 text-white placeholder-purple-200/70 border border-purple-600/50 focus:border-purple-400 transition"
               required
             />
           </motion.div>
@@ -64,7 +97,7 @@ export default function Register() {
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full pl-10 py-3 rounded-xl bg-black/30 text-white placeholder-purple-200/70 border border-purple-600/50 focus:border-purple-400 focus:outline-none transition"
+              className="w-full pl-10 py-3 rounded-xl bg-black/30 text-white placeholder-purple-200/70 border border-purple-600/50 focus:border-purple-400 transition"
               required
             />
           </motion.div>
@@ -77,17 +110,26 @@ export default function Register() {
             className="relative"
           >
             <Lock className="absolute top-1/2 left-3 -translate-y-1/2 text-purple-300/70" />
+
+            {/* Toggle Password Visibility */}
+            <div
+              className="absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer text-purple-300/70 hover:text-purple-200 transition"
+              onClick={() => setShowPass(!showPass)}
+            >
+              {showPass ? <EyeOff /> : <Eye />} {/* From lucide-react */}
+            </div>
+
             <input
-              type="password"
-              placeholder="Password"
+              type={showPass ? "text" : "password"}
+              placeholder="Password (6+ characters)"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full pl-10 py-3 rounded-xl bg-black/30 text-white placeholder-purple-200/70 border border-purple-600/50 focus:border-purple-400 focus:outline-none transition"
+              className="w-full pl-10 pr-10 py-3 rounded-xl bg-black/30 text-white placeholder-purple-200/70 border border-purple-600/50 focus:border-purple-400 transition"
               required
             />
           </motion.div>
 
-          {/* Photo URL */}
+          {/* Photo */}
           <motion.div
             initial={{ x: 50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -100,7 +142,7 @@ export default function Register() {
               placeholder="Profile Photo URL"
               value={photo}
               onChange={(e) => setPhoto(e.target.value)}
-              className="w-full pl-10 py-3 rounded-xl bg-black/30 text-white placeholder-purple-200/70 border border-purple-600/50 focus:border-purple-400 focus:outline-none transition"
+              className="w-full pl-10 py-3 rounded-xl bg-black/30 text-white placeholder-purple-200/70 border border-purple-600/50 focus:border-purple-400 transition"
             />
           </motion.div>
 
@@ -114,10 +156,10 @@ export default function Register() {
             <MapPin className="absolute top-1/2 left-3 -translate-y-1/2 text-purple-300/70" />
             <input
               type="text"
-              placeholder="Location"
+              placeholder="Your Location"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
-              className="w-full pl-10 py-3 rounded-xl bg-black/30 text-white placeholder-purple-200/70 border border-purple-600/50 focus:border-purple-400 focus:outline-none transition"
+              className="w-full pl-10 py-3 rounded-xl bg-black/30 text-white placeholder-purple-200/70 border border-purple-600/50 focus:border-purple-400 transition"
               required
             />
           </motion.div>
@@ -126,8 +168,8 @@ export default function Register() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="w-full py-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-500 text-white font-bold shadow-lg hover:shadow-xl transition"
             type="submit"
+            className="w-full py-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-500 text-white font-bold shadow-lg hover:shadow-xl transition"
           >
             Register
           </motion.button>
@@ -141,7 +183,9 @@ export default function Register() {
         >
           Already have an account?{" "}
           <span className="text-blue-400 cursor-pointer hover:underline">
-            Log In
+            <Link to="/login" className=" hover:underline">
+              Log In
+            </Link>
           </span>
         </motion.div>
       </motion.div>

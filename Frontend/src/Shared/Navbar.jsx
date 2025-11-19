@@ -1,13 +1,23 @@
 import React, { use, useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
-import { AuthContext } from "../Context/AuthContext/AuthContext";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { ThemeContext } from "../Context/ThemeContext/ThemeContext";
 import NagarikDrishtiLogo from "./NagarikDrishtiLogo/NagarikDrishtiLogo";
+import { AuthContext } from "../Context/AuthContext/AuthContext";
 
 const Navbar = () => {
+  const { user, logOut } = use(AuthContext);
+  const { theme, toggleTheme } = useContext(ThemeContext);
+  const location = useLocation();
 
-    // const { user, logOut } = use(AuthContext);
-    const { theme, toggleTheme } = useContext(ThemeContext);
+  const handleLogout = async () => {
+    try {
+      await logOut();
+      toast.success("✅ Logged out successfully");
+      setTimeout(() => navigate("/"), 1500);
+    } catch (err) {
+      toast.error(`❌ ${err.message}`);
+    }
+  };
 
   const navItems = (
     <>
@@ -56,13 +66,11 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-          {navItems}
-        </ul>
+        <ul className="menu menu-horizontal px-1">{navItems}</ul>
       </div>
 
-            <div className="navbar-end gap-1.5 md:gap-3">
-        {/* {user ? (
+      <div className="navbar-end gap-1.5 md:gap-3">
+        {user ? (
           <>
             <div className="relative group mr-3 md:mr-5">
               <div className="avatar w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
@@ -95,7 +103,7 @@ const Navbar = () => {
               </NavLink>
             )}
           </>
-        )} */}
+        )}
         <button
           onClick={toggleTheme}
           aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}

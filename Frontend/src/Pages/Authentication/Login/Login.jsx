@@ -1,23 +1,54 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { motion } from "framer-motion";
-import { Mail, Lock } from "lucide-react";
+import { Mail, Lock, Eye, EyeOff } from "lucide-react";
+import { AuthContext } from "../../../Context/AuthContext/AuthContext";
+import { Link, useNavigate } from "react-router";
+import { toast } from "react-toastify";
 
 export default function Login() {
+  const { signIn, passwordReset } = useContext(AuthContext);
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleLogin = (e) => {
+  const [showPass, setShowPass] = useState(false);
+
+  const handleLogin = async (e) => {
     e.preventDefault();
-    alert(`Logging in with ${email}`);
+    setLoading(true);
+
+    try {
+      await signIn(email, password);
+
+      toast.success("Login Successful!", {
+        autoClose: 1000,
+        onClose: () => navigate("/"),
+      });
+    } catch (error) {
+      toast.error(error.message);
+    }
+
+    setLoading(false);
   };
 
-  const handleForgotPassword = () => {
-    alert("Redirect to forgot password workflow");
+  const handleForgotPassword = async () => {
+    if (!email) {
+      alert("Please enter your email first!");
+      return;
+    }
+
+    try {
+      await passwordReset(email);
+      alert("Password reset link sent!");
+    } catch (error) {
+      alert("Error: " + error.message);
+    }
   };
 
   return (
     <div className="relative w-full h-screen bg-gradient-to-tr from-gray-900 via-purple-900 to-blue-900 flex items-center justify-center overflow-hidden">
-      
       {/* Background Neon Circles */}
       <div className="absolute w-[800px] h-[800px] bg-purple-700/30 rounded-full top-[-200px] left-[-200px] animate-pulse-slow"></div>
       <div className="absolute w-[700px] h-[700px] bg-blue-500/20 rounded-full bottom-[-150px] right-[-100px] animate-pulse-slow"></div>
@@ -54,18 +85,27 @@ export default function Login() {
 
           {/* Password */}
           <motion.div
-            initial={{ x: 50, opacity: 0 }}
+            initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="relative"
           >
             <Lock className="absolute top-1/2 left-3 -translate-y-1/2 text-purple-300/70" />
+
+            {/* Toggle Password Visibility */}
+            <div
+              className="absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer text-purple-300/70 hover:text-purple-200 transition"
+              onClick={() => setShowPass(!showPass)}
+            >
+              {showPass ? <EyeOff /> : <Eye />} {/* From lucide-react */}
+            </div>
+
             <input
-              type="password"
-              placeholder="Password"
+              type={showPass ? "text" : "password"}
+              placeholder="Password (6+ characters)"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full pl-10 py-3 rounded-xl bg-black/30 text-white placeholder-purple-200/70 border border-purple-600/50 focus:border-purple-400 focus:outline-none transition"
+              className="w-full pl-10 pr-10 py-3 rounded-xl bg-black/30 text-white placeholder-purple-200/70 border border-purple-600/50 focus:border-purple-400 transition"
               required
             />
           </motion.div>
@@ -85,13 +125,15 @@ export default function Login() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="w-full py-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-500 text-white font-bold shadow-lg hover:shadow-xl transition"
+            disabled={loading}
+            className="w-full py-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-500 text-white font-bold shadow-lg hover:shadow-xl transition disabled:opacity-50"
             type="submit"
           >
-            Log In
+            {loading ? "Logging in..." : "Log In"}
           </motion.button>
         </form>
 
+        {/* Signup Redirect */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -100,7 +142,9 @@ export default function Login() {
         >
           Don’t have an account?{" "}
           <span className="text-blue-400 cursor-pointer hover:underline">
-            Sign Up
+            <Link to="/register" className=" hover:underline">
+              Sign Up
+            </Link>
           </span>
         </motion.div>
       </motion.div>
